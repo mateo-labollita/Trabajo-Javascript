@@ -3,11 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Futbol</title>
-    <!-- javascript -->
-     <script async src="./js/script.js"></script>
+    <title>Fútbol Profesional</title>
+    <link rel="stylesheet" href="./CSS/styles.css">
+    <script async src="./js/script.js"></script>
 </head>
 <body>
-    <h1>Mateo La Bollita</h1>
+    <header>
+        <h1>Bienvenido al Mundo del Fútbol Profesional</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Información del Usuario</h2>
+            <input type="text" id="ligaFavorita" placeholder="Liga Favorita">
+            <input type="text" id="hincha" placeholder="Club Hincha">
+            <button onclick="iniciarPreguntas()">Enviar</button>
+        </section>
+
+        <section>
+            <h2>Decisiones Post Partido</h2>
+            <input type="number" id="postpartido" placeholder="Elige un número del 1 al 3">
+        </section>
+
+        <section>
+            <h2>¿Juegas al fútbol?</h2>
+            <input type="text" id="juego" placeholder="En un club / Recreativamente">
+        </section>
+
+        <section>
+            <h2>Mejor Jugador de la Historia</h2>
+            <input type="text" id="jugadorElegido" placeholder="Mejor jugador">
+        </section>
+
+        <section>
+            <h2>Jugador Perfecto</h2>
+            <input type="text" id="izquierda" placeholder="Mejor pierna zurda">
+            <input type="text" id="derecha" placeholder="Mejor pierna derecha">
+            <input type="text" id="altura" placeholder="Altura perfecta">
+            <input type="text" id="pase" placeholder="Mejor pasador">
+        </section>
+
+        <section>
+            <h2>Frase Icónica</h2>
+            <input type="text" id="frase" placeholder="Ingresa una frase icónica">
+        </section>
+
+        <section>
+            <h2>Verificar Jugador Famoso</h2>
+            <input type="text" id="nombreJugador" placeholder="Nombre del jugador">
+        </section>
+
+        <section>
+            <h2>Mejor Equipo de la Liga Profesional</h2>
+            <input type="text" id="LPF" placeholder="¿Mejor equipo? (Boca, River, etc.)">
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 - Fútbol Profesional</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
