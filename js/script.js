@@ -27,15 +27,17 @@ const liga5 = {
 const ligas = [liga1, liga2, liga3, liga4, liga5];
 let output = document.getElementById("output");
 
-let ligafavorita;
-let hincha;
 const nacionalidad = "argentino";
 
 function iniciarPreguntas() {
-    ligafavorita = document.getElementById("ligaFavorita").value;
-    hincha = document.getElementById("hincha").value;
+    let ligafavorita = document.getElementById("ligaFavorita").value;
+    let hincha = document.getElementById("hincha").value;
 
     output.innerHTML += "Perfecto! Estamos con un " + nacionalidad + " fan de la " + ligafavorita + ", e hincha de " + hincha + ".<br>";
+
+   
+    localStorage.setItem('ligaFavorita', ligafavorita);
+    localStorage.setItem('hincha', hincha);
 
     ligaConMasEquipos(ligas);
     verificarPostPartido();
@@ -45,6 +47,20 @@ function iniciarPreguntas() {
     fraseIconica();
     verificarJugadorFamoso();
     mejorEquipoLPF();
+}
+
+let button = document.getElementById("boton");
+button.onclick = () => {
+    iniciarPreguntas();
+};
+
+
+function cargarDatos() {
+    const ligaFavorita = localStorage.getItem('ligaFavorita');
+    const hincha = localStorage.getItem('hincha');
+
+    if (ligaFavorita) document.getElementById("ligaFavorita").value = ligaFavorita;
+    if (hincha) document.getElementById("hincha").value = hincha;
 }
 
 function ligaConMasEquipos(ligas) {
@@ -75,6 +91,7 @@ function verificarPostPartido() {
             break;
     }
     output.innerHTML += mensaje + '<br>';
+    localStorage.setItem('postpartido', postpartido); 
 }
 
 function verificarJuego() {
@@ -86,6 +103,7 @@ function verificarJuego() {
         mensaje = "Está muy bien! El fútbol recreativo es hermoso.";
     }
     output.innerHTML += mensaje + '<br>';
+    localStorage.setItem('juego', juego); 
 }
 
 function elegirJugador() {
@@ -93,6 +111,7 @@ function elegirJugador() {
     mejoresJugadores.sort();
     let jugadorElegido = document.getElementById("jugadorElegido").value;
     output.innerHTML += "Claro! " + jugadorElegido + " es uno de los más talentosos! Buena elección.<br>";
+    localStorage.setItem('jugadorElegido', jugadorElegido); 
 }
 
 function jugadorPerfecto() {
@@ -101,18 +120,19 @@ function jugadorPerfecto() {
     let altura = document.getElementById("altura").value;
     let pase = document.getElementById("pase").value;
 
-    const jugadorPerfecto = {
-        izquierda,
-        derecha,
-        altura,
-        pase
-    };
     output.innerHTML += "Tu jugador perfecto tendría la izquierda de " + izquierda + ", la derecha de " + derecha + ", la pasaría como " + pase + " y sería alto como " + altura + ".<br>";
+    
+    
+    localStorage.setItem('izquierda', izquierda);
+    localStorage.setItem('derecha', derecha);
+    localStorage.setItem('altura', altura);
+    localStorage.setItem('pase', pase);
 }
 
 function fraseIconica() {
     let frase = document.getElementById("frase").value;
     output.innerHTML += frase + '<br>';
+    localStorage.setItem('frase', frase); 
 }
 
 function verificarJugadorFamoso() {
@@ -125,6 +145,7 @@ function verificarJugadorFamoso() {
     } else {
         output.innerHTML += `${nombreJugador} no es un jugador famoso.<br>`;
     }
+    localStorage.setItem('nombreJugador', nombreJugador); 
 }
 
 function esJugadorFamoso(nombre, jugadoresFamosos) {
@@ -143,8 +164,9 @@ function mejorEquipoLPF() {
             mensaje = "Gran elección! Estos cinco equipos son considerados por la mayoría como los más populares de Argentina.";
             break;
         default:
-            mensaje = "Tu respuesta no está entre las opciones! Pero no hay ningún problema. Hay miles de equipos en el Futbol argentino, solo que estos cinco son los que la mayoria consideran los mejores.";
+            mensaje = "Tu respuesta no está entre las opciones! Pero no hay ningún problema. Hay miles de equipos en el Futbol argentino, solo que estos cinco son los que la mayoría consideran los mejores.";
             break;
     }
     output.innerHTML += mensaje + '<br>';
+    localStorage.setItem('LPF', LPF); 
 }
