@@ -32,7 +32,8 @@ const nacionalidad = "argentino";
 function iniciarPreguntas() {
     let ligafavorita = document.getElementById("ligaFavorita").value;
     let hincha = document.getElementById("hincha").value;
-
+    const nacionalidad = "argentino";
+    
     output.innerHTML += "Perfecto! Estamos con un " + nacionalidad + " fan de la " + ligafavorita + ", e hincha de " + hincha + ".<br>";
 
    
