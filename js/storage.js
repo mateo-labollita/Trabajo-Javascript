@@ -13,7 +13,6 @@ const inputs = [
     "nombreJugador", 
     "LPF"
 ];
-
 document.getElementById("boton").addEventListener("click", () => {
     inputs.forEach(inputId => {
         const input = document.getElementById(inputId);
@@ -24,11 +23,9 @@ document.getElementById("boton").addEventListener("click", () => {
     });
     localStorage.setItem("respuestas", JSON.stringify(respuestas));
 });
-
 document.getElementById("mostrarRespuestas").addEventListener("click", () => {
     const outputDiv = document.getElementById("output");
     const respuestasGuardadas = JSON.parse(localStorage.getItem("respuestas"));
-
     if (outputDiv.style.display === "none" || outputDiv.style.display === "") {
         outputDiv.innerHTML = ""; // limpiar salida
         if (respuestasGuardadas) {
@@ -40,12 +37,10 @@ document.getElementById("mostrarRespuestas").addEventListener("click", () => {
                 btnEditar.textContent = "Editar";
                 btnEditar.onclick = () => editarRespuesta(key, value);
                 respuestaDiv.appendChild(btnEditar);
-
                 const btnEliminar = document.createElement("button");
                 btnEliminar.textContent = "Eliminar";
                 btnEliminar.onclick = () => eliminarRespuesta(key);
                 respuestaDiv.appendChild(btnEliminar);
-
                 outputDiv.appendChild(respuestaDiv);
             }
         } else {
@@ -56,17 +51,14 @@ document.getElementById("mostrarRespuestas").addEventListener("click", () => {
         outputDiv.style.display = "none"; // ocultar respuestas
     }
 });
-
 function editarRespuesta(key, value) {
     document.getElementById(key).value = value; // rellenar campo
     eliminarRespuesta(key); // eliminar respuesta
 }
-
 function eliminarRespuesta(key) {
     const respuestasGuardadas = JSON.parse(localStorage.getItem("respuestas"));
     delete respuestasGuardadas[key]; // eliminar la respuesta especifica
     localStorage.setItem("respuestas", JSON.stringify(respuestasGuardadas)); // actualizar el localstorage
     document.getElementById("mostrarRespuestas").click(); // actualizar la vista de las respuestas
 }
-
 
