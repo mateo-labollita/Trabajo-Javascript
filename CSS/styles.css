@@ -1,6 +1,10 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
+    background-image: url("../multimedia/Fondo.jpg!d"); 
+    background-size: cover; 
+    background-attachment: fixed; 
+    background-position: center; 
     margin: 0;
     padding: 0;
     color: #333;
@@ -30,6 +34,12 @@ section {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+#respuestasContainer {
+    background: none;
+    box-shadow: none;
+    padding: 0px;
+}
+
 h2 {
     color: #4CAF50;
     margin-bottom: 15px;
@@ -41,8 +51,8 @@ input[type="number"] {
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: calc(100% - 22px); /* Adjust width considering padding */
-    box-sizing: border-box; /* Ensure padding is included in width */
+    width: calc(100% - 22px); 
+    box-sizing: border-box; 
     font-size: 16px;
 }
 
@@ -68,6 +78,11 @@ button:hover {
     background-color: #45a049;
 }
 
+
+button {
+    margin-right: 10px; /
+}
+
 footer {
     text-align: center;
     padding: 15px 0;
@@ -77,6 +92,10 @@ footer {
     bottom: 0;
     width: 100%;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+strong {
+    color: white;
 }
 
 @media (min-width: 768px) {
@@ -91,3 +110,4 @@ footer {
         align-items: flex-start;
     }
 }
+
