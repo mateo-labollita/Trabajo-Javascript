@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fútbol Profesional</title>
     <link rel="stylesheet" href="./CSS/styles.css">
-    <script async src="./js/script.js"></script>
+    <!-- Agregar Axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script defer src="./js/storage.js"></script>
     <script defer src="./js/script.js"></script>
 </head>
@@ -51,19 +52,27 @@
 
         <section>
             <h2>Verificar Jugador Famoso</h2>
-            <input type="text" id="nombreJugador" placeholder="Nombra algún jugador que consideres famoso">
+            <input type="text" id="nombreJugador" placeholder="Nombra algún jugador famoso">
+            <button id="verificarJugador">Verificar Jugador</button>
+            <div id="jugadorInfo"></div> <!-- Contenedor para mostrar información del jugador -->
         </section>
 
         <section>
-            <h2>Mejor Equipo de la Liga Profesional</h2>
-            <input type="text" id="LPF" placeholder="¿Mejor equipo? (Boca, River, etc.)">
+            <h2>Edad y Clubes</h2>
+            <input type="date" id="fechaNacimiento" placeholder="Fecha de Nacimiento">
+            <input type="text" id="clubesJugados" placeholder="¿En qué clubes has jugado?">
+        </section>
+
+        <section>
+            <button id="boton">Enviar</button>
         </section>
 
         <div id="output" style="white-space: pre-wrap;"></div>
         <section id="respuestasContainer">
             <button id="mostrarRespuestas">Mostrar/ocultar respuestas</button>
         </section>
-        <button id="boton">Enviar</button>
+        
+        <div id="mensajeEdad"></div> <!-- Mensaje dependiendo de la edad -->
     </main>
 
     <footer>
@@ -71,3 +80,5 @@
     </footer>
 </body>
 </html>
+
+    
